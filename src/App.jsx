@@ -1,12 +1,14 @@
 // Library imports
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore";
 import SidePanel from "./components/SidePanel"; // Import the SidePanel component
 
 // App Component
 function App() {
   return (
-    <>
+    <Provider store={appStore}>
       <Header />
       <div className="flex">
         {/* Left Side Panel */}
@@ -19,7 +21,7 @@ function App() {
           <Outlet />
         </main>
       </div>
-    </>
+    </Provider>
   );
 }
 

@@ -1,8 +1,35 @@
 import useFetch from "../utils/useFetch";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../utils/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function ProductList() {
   const { data, error, loading } = useFetch("/api");
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Check if a product is in the cart
+  const findCartItem = (productId) =>
+    cartItems.find((item) => item.id === productId);
+
+  // Handle Add/Remove logic
+  const handleCartToggle = (product) => {
+    const cartItem = findCartItem(product.id);
+
+    if (cartItem) {
+      // Product is already in the cart
+      if (cartItem.quantity > product.minimumOrderQuantity) {
+        dispatch(removeItem(product));
+      } else {
+        dispatch(removeItem(product)); // Remove completely if below min quantity
+      }
+    } else {
+      // Add product with minimum order quantity if not already in the cart
+      dispatch(addItem({ ...product, quantity: product.minimumOrderQuantity }));
+    }
+  };
 
   if (loading) {
     return (
@@ -26,23 +53,41 @@ function ProductList() {
     <div className="m-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
         {products.map((prod) => (
-          <Link
+          <div
             key={prod.id}
-            to={`/product-detail/${prod.id}`}
-            className="flex flex-col p-4 border rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300"
+            className="relative flex flex-col p-4 border rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            <div className="flex-shrink-0 h-48">
-              <img
-                src={prod.thumbnail}
-                alt={prod.title}
-                className="w-full h-full object-cover rounded-md"
+            {/* Add to Cart/Check Icon */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent Link navigation
+                handleCartToggle(prod);
+              }}
+              className="absolute top-2 right-2 bg-white text-blue-600 p-2 rounded-full shadow hover:bg-blue-100"
+            >
+              <FontAwesomeIcon
+                icon={findCartItem(prod.id) ? faCheck : faCartShopping}
               />
-            </div>
-            <div className="flex-1 mt-4">
-              <h3 className="text-lg font-semibold truncate">{prod.title}</h3>
-              <p className="text-gray-600">Price: ${prod.price}</p>
-            </div>
-          </Link>
+            </button>
+
+            {/* Product Thumbnail */}
+            <Link
+              to={`/product-detail/${prod.id}`}
+              className="flex flex-col h-full"
+            >
+              <div className="flex-shrink-0 h-48">
+                <img
+                  src={prod.thumbnail}
+                  alt={prod.title}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </div>
+              <div className="flex-1 mt-4">
+                <h3 className="text-lg font-semibold truncate">{prod.title}</h3>
+                <p className="text-gray-600">Price: ${prod.price}</p>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
     </div>

@@ -106,3 +106,18 @@ Develop a basic e-commerce application named **ShoppyGlobe** to explore core Rea
 | Styling                     | 20        |
 | Submission Guidelines       | 20        |
 | **Total**                   | **250**   |
+
+
+
+
+An Existing App
+Redux Toolkit is available as a package on NPM for use with a module bundler or in a Node application:
+
+npm
+```bash
+npm install @reduxjs/toolkit
+```
+If you need React bindings:
+```bash
+npm install react-redux
+```

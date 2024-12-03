@@ -11,6 +11,8 @@ const ProductDetail = lazy(() => import("./components/ProductDetail"));
 const ProductItem = lazy(() => import("./components/ProductItem"));
 const ProductList = lazy(() => import("./components/ProductList"));
 const NotFound = lazy(() => import("./components/NotFound"));
+const Checkout = lazy(() => import("./components/Checkout.jsx"));
+const Search = lazy(() => import ("./components/Search.jsx"));
 
 // Router configuration
 const appRouter = createBrowserRouter([
@@ -20,10 +22,12 @@ const appRouter = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "cart", element: <Cart /> },
-      { path: "cart-item", element: <CartItem /> },
+      { path: "cart-item/:cartId", element: <CartItem /> },
       { path: "product-detail/:productId", element: <ProductDetail /> },
       { path: "product-list/:category", element: <ProductItem /> },
       { path: "/", element: <ProductList /> },
+      { path: '/checkout', element: <Checkout />},
+      { path: '/search/:query', element: <Search />},
     ],
   },
 ]);

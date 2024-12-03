@@ -16,7 +16,7 @@ function Checkout() {
           </div>
         </div>
         <p className="text-gray-500 mt-6">
-          Meanwhile, feel free to browse other parts of our site!
+          Meanwhile, feel free to browse other parts of the site!
         </p>
       </div>
     </div>

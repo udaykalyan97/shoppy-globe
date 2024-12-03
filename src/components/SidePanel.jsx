@@ -17,14 +17,14 @@ function SidePanel() {
   const categories = [...new Set(data.products.map((product) => product.category))];
 
   return (
-    <div>
+    <div className="p-4 rounded-lg sm:w-64 lg:w-52">
       <h2 className="text-lg font-bold mb-4">Categories</h2>
       <ul className="space-y-2">
         {categories.map((category) => (
           <li key={category}>
             <Link
               to={`/product-list/${category}`}
-              className="text-blue-600 hover:underline capitalize"
+              className="text-blue-600 hover:underline capitalize block sm:text-base lg:text-lg"
             >
               {category}
             </Link>

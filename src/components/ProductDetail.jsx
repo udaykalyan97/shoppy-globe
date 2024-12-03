@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useFetch from "../utils/useFetch";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 function ProductDetail() {
   const { productId } = useParams();
@@ -43,8 +43,10 @@ function ProductDetail() {
     );
   }
 
+  const isOutOfStock = filteredProduct.stock < filteredProduct.minimumOrderQuantity;
+
   return (
-    <div className="product-detail p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-md">
+    <div className="product-detail p-6 max-w-4xl mx-auto bg-white rounded-lg">
       <div className="flex flex-col">
         <img
           src={filteredProduct.thumbnail}
@@ -56,6 +58,12 @@ function ProductDetail() {
         <div className="text-xl font-semibold text-blue-600 mb-4">
           Price: ${filteredProduct.price}
         </div>
+        <p className="text-gray-600 mb-2">
+          <strong>Stock:</strong> {filteredProduct.stock}
+        </p>
+        <p className="text-gray-600 mb-2">
+          <strong>Minimum Order Quantity:</strong> {filteredProduct.minimumOrderQuantity}
+        </p>
         <p className="text-gray-600 mb-2">
           <strong>Category:</strong> {filteredProduct.category}
         </p>
@@ -100,13 +108,33 @@ function ProductDetail() {
             </li>
           ))}
         </ul>
-        <div className="flex gap-4">
-          <button
-            onClick={() => dispatch(addItem(filteredProduct))}
-            className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500"
-          >
-            Add to Cart
-          </button>
+        <strong>Product Images: </strong>
+        <p className="text-gray-600 mb-2 flex flex-wrap">
+            {filteredProduct.images.map((img, index) => (
+                <img
+                    key={index}
+                    src={img}
+                    alt="img"
+                    className="h-24 w-24 object-cover m-4"
+                />
+            ))}
+        </p>
+        <div className="flex gap-4 mt-4">
+          {isOutOfStock ? (
+            <button
+              disabled
+              className="bg-gray-400 text-white py-2 px-6 rounded-lg cursor-not-allowed"
+            >
+              Out of Stock
+            </button>
+          ) : (
+            <button
+              onClick={() => dispatch(addItem(filteredProduct))}
+              className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500"
+            >
+              Add to Cart
+            </button>
+          )}
           <button
             onClick={() => navigate(-1)}
             className="bg-gray-300 text-gray-800 py-2 px-6 rounded-lg hover:bg-gray-200"

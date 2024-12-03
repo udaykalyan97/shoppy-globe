@@ -29,38 +29,40 @@ function Header() {
 
   return (
     <>
-      <div className="bg-blue-600 text-white flex justify-between items-center px-6 py-4 shadow-lg">
+      <div className="bg-blue-600 text-white flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-4 shadow-lg">
         {/* Logo Section */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mb-4 md:mb-0">
           <Link to={`/`}>
-            <div className="hover:text-blue-300 cursor-pointer scale-1 text-xl font-bold flex items-center">
+            <div className="hover:text-blue-300 cursor-pointer scale-1 text-lg md:text-xl font-bold flex items-center">
               <FontAwesomeIcon icon={faStripeS} className="mr-2" />
               <div className="text-white">ShoppyGlobe</div>
             </div>
           </Link>
+        </div>
 
-          {/* Search Input */}
-          <div className="flex items-center bg-white text-gray-600 rounded-full p-2 w-auto">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleInputChange} // Update the searchQuery state
-              placeholder="Search by title or description..."
-              className="bg-transparent border-none outline-none placeholder-gray-500 text-sm w-auto"
-            />
-            <button
-              onClick={handleSearch}
-              className="rounded ml-2 hover:bg-slate-200"
-            >
-              Go
-            </button>
-          </div>
+        {/* Search Input */}
+        <div className="flex items-center bg-white text-gray-600 rounded-full p-2 w-full md:w-80">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleInputChange} // Update the searchQuery state
+            placeholder="Search by title or description..."
+            className="bg-transparent border-none outline-none placeholder-gray-500 text-sm w-full md:w-72"
+          />
+          <button
+            onClick={handleSearch}
+            className="rounded ml-2 hover:bg-slate-200 px-3 py-1"
+          >
+            Go
+          </button>
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex gap-6">
-          <Link to={'/log-in'}><p className="hover:text-blue-300 cursor-pointer">Log In</p></Link>
-          <p className="hover:text-blue-300 cursor-pointer flex items-center">
+        <nav className="flex gap-6 mt-4 md:mt-0">
+          <Link to={'/login'}>
+            <p className="hover:text-blue-300 cursor-pointer text-sm md:text-base">Log In</p>
+          </Link>
+          <p className="hover:text-blue-300 cursor-pointer flex items-center text-sm md:text-base">
             <Link to={"/cart"}>
               <FontAwesomeIcon icon={faCartShopping} className="mr-2" />
               Cart ({totalQuantity})

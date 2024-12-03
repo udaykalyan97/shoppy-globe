@@ -59,7 +59,7 @@ function Header() {
 
         {/* Navigation Links */}
         <nav className="flex gap-6 mt-4 md:mt-0">
-          <Link to={'/login'}>
+          <Link to={'/userlogin'}>
             <p className="hover:text-blue-300 cursor-pointer text-sm md:text-base">Log In</p>
           </Link>
           <p className="hover:text-blue-300 cursor-pointer flex items-center text-sm md:text-base">

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-function Login() {
+function UserLogin() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="text-center bg-white p-6 rounded-lg shadow-lg">
@@ -19,4 +19,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default UserLogin;

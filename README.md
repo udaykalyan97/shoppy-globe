@@ -1,8 +1,59 @@
-# ShoppyGlobe E-commerce Application
+# **React E-commerce Application**
 
-A React-based e-commerce application that demonstrates various features including state management, routing, data fetching, and styling. 
+A feature-rich e-commerce application built with React, Redux Toolkit, React Router, and FontAwesome for icons. This application provides a seamless shopping experience with features like product listing, category filters, cart management, and more.
 
 ---
+
+## **Features**
+- **Product Listing**: Browse products with category-based filtering.
+- **Cart Management**: Add, remove, and update items in the cart.
+- **Responsive Design**: Optimized for both large and small screens.
+- **Routing**: Navigate between pages with React Router.
+- **Redux Integration**: Manage global state using Redux Toolkit.
+- **Dynamic UI**: Automatically displays "Out of Stock" products.
+
+---
+
+## **Installation**
+
+### **Prerequisites**
+Ensure you have the following installed:
+- **Node.js**: [Download Node.js](https://nodejs.org)
+- **npm or yarn**: Comes bundled with Node.js.
+
+### **Steps**
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/udaykalyan97/shoppy-globe.git
+   cd shoppy-globe
+  ```
+
+2. Install Dependencies:
+```bash
+npm install
+```
+
+3. Install Required Additional Packages:
+- React Router DOM:
+```bash
+npm install react-router-dom
+```
+- Redux Toolkit:
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+- FontAwesome:
+```bash
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
+```
+
+4. Start the development Server:
+```bash
+npm start
+```
+
+5. Open the browser and navigate to http://localhost:3000
 
 ## **Objective**
 Develop a basic e-commerce application named **ShoppyGlobe** to explore core React concepts and best practices.
@@ -89,35 +140,3 @@ Develop a basic e-commerce application named **ShoppyGlobe** to explore core Rea
 
 ## **API Reference**
 - [DummyJSON Products API](https://dummyjson.com/products)
-
----
-
-## **Evaluation Criteria**
-| **Category**                | **Marks** |
-|-----------------------------|-----------|
-| Component Structure         | 20        |
-| Props                       | 10        |
-| Data Fetching               | 40        |
-| State Management            | 70        |
-| Event Handling              | 20        |
-| React Routing               | 20        |
-| React Lists                 | 10        |
-| Performance Optimization    | 20        |
-| Styling                     | 20        |
-| Submission Guidelines       | 20        |
-| **Total**                   | **250**   |
-
-
-
-
-An Existing App
-Redux Toolkit is available as a package on NPM for use with a module bundler or in a Node application:
-
-npm
-```bash
-npm install @reduxjs/toolkit
-```
-If you need React bindings:
-```bash
-npm install react-redux
-```

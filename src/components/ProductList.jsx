@@ -76,7 +76,7 @@ function ProductList() {
                 />
               </button>
 
-              {/* Product Thumbnail */}
+              {/* Product Thumbnail Combination of props and Link*/}
               <Link
                 to={`/product-detail/${prod.id}`}
                 className={`flex flex-col h-full ${isOutOfStock ? "pointer-events-none" : ""}`}

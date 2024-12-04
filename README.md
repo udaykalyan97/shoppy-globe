@@ -27,38 +27,38 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/udaykalyan97/shoppy-globe.git
    cd shoppy-globe
-  ```
+   ```
 
 2. Install Dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Install Required Additional Packages:
-- React Router DOM:
-```bash
-npm install react-router-dom
-```
-- Redux Toolkit:
-```bash
-npm install @reduxjs/toolkit react-redux
-```
-- FontAwesome:
-```bash
-npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
-```
+   - React Router DOM:
+   ```bash
+   npm install react-router-dom
+   ```
+   - Redux Toolkit:
+   ```bash
+   npm install @reduxjs/toolkit react-redux
+   ```
+   - FontAwesome:
+   ```bash
+   npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
+   ```
 
 4. Start the development Server:
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 5. Open the browser and navigate to http://localhost:3000
 
+---
+
 ## **Objective**
 Develop a basic e-commerce application named **ShoppyGlobe** to explore core React concepts and best practices.
-
----
 
 ## **Project Requirements**
 
@@ -119,13 +119,6 @@ Develop a basic e-commerce application named **ShoppyGlobe** to explore core Rea
 ### **Styling**
 - Apply CSS for styling the application.
 - Ensure the application is responsive and works well across different screen sizes.
-
----
-
-## **Submission Guidelines**
-1. Ensure your application runs without errors. 
-2. Use proper indentation and include comments to explain your code. 
-3. Submit a link to your GitHub repository with the completed project.
 
 ---
 

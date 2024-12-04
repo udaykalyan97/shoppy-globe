@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem } from "../utils/cartSlice";
+import { addItem, removeItem, clearCart} from "../utils/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 
 function Cart() {
   const dispatch = useDispatch();
@@ -32,6 +33,11 @@ function Cart() {
     }
   };
 
+  // Handle clearing the whole cart
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  }
+
   if (cartItems.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -44,13 +50,16 @@ function Cart() {
     <div className="p-4">
         <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold">My Cart</h1>
-
+            <div>
+            <button onClick={handleClearCart} className="bg-slate-700 text-white py-2 px-6 mr-2 rounded-lg hover:bg-rose-500 cursor-pointer">
+                    Clear Cart Items
+                </button>
             {/* Checkout Button */}
             <Link to="/checkout">
-                <button className="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-500 cursor-pointer">
+                <button className="bg-green-700 text-white py-2 px-6 rounded-lg hover:bg-green-500 cursor-pointer">
                     Proceed to Checkout
                 </button>
-            </Link>
+            </Link></div>
         </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -63,13 +72,11 @@ function Cart() {
             <Link to={`/cart-item/${item.id}`}
               className="block"
               onClick={(e) => {
-                if (
-                  e.target.tagName === "BUTTON" || e.target.tagName === "SVG" || e.target.tagName === "PATH"
-                ) {
+                if (e.target.tagName === "BUTTON" || e.target.tagName === "SVG" || e.target.tagName === "PATH") {
                   e.preventDefault(); // Prevent navigation if the click is on a button or icon
                 }
               }}
-            >
+              >
               <img
                 src={item.thumbnail}
                 alt={item.title}

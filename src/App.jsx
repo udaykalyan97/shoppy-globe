@@ -11,7 +11,6 @@ function App() {
     <Provider store={appStore}>
       {/* Header */}
       <Header />
-
       {/* Main Layout */}
       <div className="flex flex-col lg:flex-row p-4">
         {/* SidePanel (Categories) */}

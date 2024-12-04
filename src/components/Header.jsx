@@ -4,12 +4,13 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faStripeS } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react"; // For managing the search input
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const cartItems = useSelector((store) => store.cart.items);
-  const navigate = useNavigate(); // Initialize navigate for programmatic navigation
+  const navigate = useNavigate(); // Initialize navigate 
 
   // Calculate total quantity in the cart
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -19,7 +20,7 @@ function Header() {
     setSearchQuery(e.target.value);
   };
 
-  // Handle "Go" button click
+  // Handle "-->" button click
   const handleSearch = () => {
     if (searchQuery.trim()) {
       // If searchQuery is non-empty, navigate to /search with the query parameter
@@ -33,8 +34,8 @@ function Header() {
         {/* Logo Section */}
         <div className="flex items-center gap-4 mb-4 md:mb-0">
           <Link to={`/`}>
-            <div className="hover:text-blue-300 cursor-pointer scale-1 text-lg md:text-xl font-bold flex items-center">
-              <FontAwesomeIcon icon={faStripeS} className="mr-2" />
+            <div className="hover:text-green-300 cursor-pointer scale-1 text-lg md:text-xl font-bold flex items-center">
+              <FontAwesomeIcon icon={faStripeS} className="mr-1 bg-rose-400 rounded-full h-8 w-12" />
               <div className="text-white">ShoppyGlobe</div>
             </div>
           </Link>
@@ -53,7 +54,7 @@ function Header() {
             onClick={handleSearch}
             className="rounded ml-2 hover:bg-slate-200 px-3 py-1"
           >
-            Go
+            <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
 

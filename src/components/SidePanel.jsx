@@ -24,8 +24,7 @@ function SidePanel() {
           <li key={category}>
             <Link
               to={`/product-list/${category}`}
-              className="text-blue-600 hover:underline capitalize block sm:text-base lg:text-lg"
-            >
+              className="text-blue-600 hover:underline capitalize block sm:text-base lg:text-lg">
               {category}
             </Link>
           </li>

@@ -51,7 +51,7 @@ function ProductDetail() {
         <img
           src={filteredProduct.thumbnail}
           alt={filteredProduct.title}
-          className="w-full max-w-sm rounded-lg mb-6"
+          className="w-full max-w-sm rounded-lg mb-6 h-64 w-64"
         />
         <h1 className="text-2xl font-bold mb-4">{filteredProduct.title}</h1>
         <p className="text-lg text-gray-700 mb-4">{filteredProduct.description}</p>

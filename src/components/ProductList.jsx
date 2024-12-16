@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function ProductList() {
-  const { data, error, loading } = useFetch("/api");
+  // const { data, error, loading } = useFetch("/api");
+  const { data, error, loading } = useFetch("https://dummyjson.com/products");
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 

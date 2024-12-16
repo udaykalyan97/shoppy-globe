@@ -10,7 +10,8 @@ function ProductItem() {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   // Fetch product data
-  const { data, error, loading } = useFetch("/api");
+  // const { data, error, loading } = useFetch("/api");
+  const { data, error, loading } = useFetch("https://dummyjson.com/products");
 
   // Extract products from the fetched data
   const products = data?.products || [];

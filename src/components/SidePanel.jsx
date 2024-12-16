@@ -3,7 +3,8 @@ import useFetch from "../utils/useFetch";
 
 function SidePanel() {
   // Fetch products data
-  const { data, error, loading } = useFetch("/api");
+  // const { data, error, loading } = useFetch("/api");
+  const { data, error, loading } = useFetch("https://dummyjson.com/products");
 
   if (loading) {
     return <div>Loading categories...</div>;

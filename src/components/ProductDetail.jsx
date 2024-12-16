@@ -8,7 +8,8 @@ function ProductDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [filteredProduct, setFilteredProduct] = useState(null);
-  const { data, error, loading } = useFetch("/api");
+  // const { data, error, loading } = useFetch("/api");
+  const { data, error, loading } = useFetch("https://dummyjson.com/products");
   const products = data?.products || [];
   const dispatch = useDispatch();
 

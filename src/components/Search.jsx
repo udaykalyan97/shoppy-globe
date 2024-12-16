@@ -8,7 +8,8 @@ function Search() {
   console.log(query);
 
   // Fetch product data using useFetch
-  const { data, error, loading } = useFetch("/api");
+  // const { data, error, loading } = useFetch("/api");
+  const { data, error, loading } = useFetch("https://dummyjson.com/products");
 
   useEffect(() => {
     if (data && query) {
